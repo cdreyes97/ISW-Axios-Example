@@ -1,28 +1,22 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Container, Row } from "shards-react";
+import teamsService from '../services/teams.service';
 
 import PageTitle from "../components/common/PageTitle";
-
-const propTypes = {
-  teams: PropTypes.shape(),
-}
-
-const defaultProps = {
-  teams: null,
-}
 
 class TeamsList extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      teams: [{
-        name: 'hello'
-      },{
-        name: 'world'
-      }],
+      teams: [],
     }
+  }
+
+  componentDidMount() {
+    teamsService.getAll().then((response) => {
+      console.log(response);
+    });
   }
 
   render() {
