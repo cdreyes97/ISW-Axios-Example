@@ -13,6 +13,7 @@ import ComponentsOverview from "./views/ComponentsOverview";
 import Tables from "./views/Tables";
 import BlogPosts from "./views/BlogPosts";
 import TeamsList from './views/TeamsList';
+import TeamForm from './views/TeamForm';
 
 export default [
   {
@@ -60,5 +61,10 @@ export default [
     path: "/teams-list",
     layout: DefaultLayout,
     component: TeamsList
+  },
+  {
+    path: "/teams-form",
+    layout: DefaultLayout,
+    component: TeamForm
   },
 ];

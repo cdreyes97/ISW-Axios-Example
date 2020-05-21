@@ -42,7 +42,7 @@ class TeamsList extends Component {
           {teams.map((team, index) => {
             console.log(team);
             return (
-              <Col lg="4" key={team.id}>
+              <Col lg="2" key={team.id}>
                 <Card small className="card-post mb-4">
                   <CardBody>
                     <h5 className="card-title">{team.nombre}</h5>
