@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Row } from "shards-react";
+import {
+  Container,
+  Row,
+  Col,
+  Card,
+  CardBody,
+} from "shards-react";
 import teamsService from '../services/teams.service';
 
 import PageTitle from "../components/common/PageTitle";
@@ -16,6 +22,9 @@ class TeamsList extends Component {
   componentDidMount() {
     teamsService.getAll().then((response) => {
       console.log(response);
+      this.setState({
+        teams: response.status === 200 ? response.data : [],
+      })
     });
   }
 
@@ -29,17 +38,21 @@ class TeamsList extends Component {
           <PageTitle sm="4" title="Champions League Teams" subtitle="Ayudantía" className="text-sm-left" />
         </Row>
 
-        {teams.map((team, index) => {
-          console.log(team);
-          return (
-            <div
-              key={index}
-            > 
-            {index}
-            </div>
-          )
-        })}
-
+        <Row>
+          {teams.map((team, index) => {
+            console.log(team);
+            return (
+              <Col lg="4" key={team.id}>
+                <Card small className="card-post mb-4">
+                  <CardBody>
+                    <h5 className="card-title">{team.nombre}</h5>
+                    <p className="card-text text-muted">{team.pais}</p>
+                  </CardBody>
+                </Card>
+              </Col>
+            )
+          })}
+        </Row>
       </Container>
     );
   }
