@@ -1,22 +1,25 @@
 import React, { Component } from "react";
 import {
-    Container,
-    Row,
-    Col,
-    Card,
-    CardBody,
-    Form,
-    FormGroup,
-    FormInput,
-  } from "shards-react";
+  Container,
+  Row,
+} from "shards-react";
 
 import PageTitle from "../components/common/PageTitle";
+import Team from "../components/forms/Team";
 import teamsService from '../services/teams.service';
 
 class AddNewPost extends Component {
 
+  constructor(props) {
+    super(props);
+    
+    this.handleTeamSubmit = this.handleTeamSubmit.bind(this);
+  }
+
   handleTeamSubmit(data) {
-    teamsService.create(data);
+    teamsService.create(data)
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
   }
 
   render() {
@@ -28,25 +31,9 @@ class AddNewPost extends Component {
           <PageTitle sm="4" title="Add New Team" subtitle="Ayudantía" className="text-sm-left" />
         </Row>
 
-        <Row>
-          {/* Editor */}
-          <Col lg="9" md="12">
-            <Card small className="mb-3">
-              <CardBody>
-                <Form className="add-new-post">
-                  <FormGroup>
-                    <label>Team Name</label>
-                    <FormInput size="lg" className="mb-3" placeholder="Tricolor de Paine" />
-                  </FormGroup>
-                  <FormGroup>
-                    <label>Team Country</label>
-                    <FormInput size="lg" className="mb-3" placeholder="Chile" />
-                  </FormGroup>
-                </Form>
-              </CardBody>
-            </Card>
-          </Col>
-        </Row>
+        <Team
+          onSubmit={this.handleTeamSubmit}
+        ></Team>
       </Container>
     );
   }

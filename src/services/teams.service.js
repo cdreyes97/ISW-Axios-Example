@@ -11,7 +11,7 @@ function show(teamId) {
 }
 
 function create(data) {
-    return api.post(`${basePath}`, data);
+    return api.post(`${basePath}/`, data);
 }
 
 const teamsService = {

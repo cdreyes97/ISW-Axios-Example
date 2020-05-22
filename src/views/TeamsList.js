@@ -21,7 +21,6 @@ class TeamsList extends Component {
 
   componentDidMount() {
     teamsService.getAll().then((response) => {
-      console.log(response);
       this.setState({
         teams: response.status === 200 ? response.data : [],
       })
@@ -40,7 +39,6 @@ class TeamsList extends Component {
 
         <Row>
           {teams.map((team, index) => {
-            console.log(team);
             return (
               <Col lg="2" key={team.id}>
                 <Card small className="card-post mb-4">
