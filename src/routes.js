@@ -14,6 +14,12 @@ import Tables from "./views/Tables";
 import BlogPosts from "./views/BlogPosts";
 import TeamsList from './views/TeamsList';
 import TeamForm from './views/TeamForm';
+import Pabellones from './views/Pabellones';
+import PabellonForm from './views/PabellonForm';
+import Recuperacion from "./views/Recuperacion";
+import RecuperacionForm from "./views/RecuperacionForm";
+import RecuperacionShow from "./views/RecuperacionShow";
+import AddCamaToSala from "./views/AddCamaToSala";
 
 export default [
   {
@@ -67,4 +73,44 @@ export default [
     layout: DefaultLayout,
     component: TeamForm
   },
+  {
+    path: "/pabellones",
+    layout: DefaultLayout,
+    component: Pabellones
+  },
+  {
+    path: "/editar-pabellon/:id",
+    layout: DefaultLayout,
+    component: PabellonForm
+  },
+  {
+    path: "/agregar-pabellon",
+    layout: DefaultLayout,
+    component: PabellonForm
+  },
+  {
+    path: "/recuperacion",
+    layout: DefaultLayout,
+    component: Recuperacion
+  },
+  {
+    path: "/editar-recuperacion/:id",
+    layout: DefaultLayout,
+    component: RecuperacionForm
+  },
+  {
+    path: "/agregar-recuperacion",
+    layout: DefaultLayout,
+    component: RecuperacionForm
+  },
+  {
+    path: "/ver-recuperacion/:id",
+    layout: DefaultLayout,
+    component: RecuperacionShow
+  },
+  {
+    path: "/agregar-cama-recuperacion/:id",
+    layout: DefaultLayout,
+    component: AddCamaToSala
+  }
 ];

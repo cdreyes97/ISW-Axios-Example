@@ -36,15 +36,25 @@ export default function() {
     //   htmlBefore: '<i class="material-icons">error</i>',
     //   to: "/errors",
     // },
+    //{
+    //  title: 'Teams',
+    //  htmlBefore: '<i class="material-icons">view_module</i>',
+    //  to: '/teams-list'
+    //},
+    //{
+    //  title: 'Add Team',
+    //  htmlBefore: '<i class="material-icons">note_add</i>',
+    //  to: '/teams-form'
+    //},
     {
-      title: 'Teams',
+      title: 'Pabellones',
       htmlBefore: '<i class="material-icons">view_module</i>',
-      to: '/teams-list'
+      to: '/pabellones'
     },
     {
-      title: 'Add Team',
-      htmlBefore: '<i class="material-icons">note_add</i>',
-      to: '/teams-form'
+      title: 'Salas de Recuperación',
+      htmlBefore: '<i class="material-icons">view_module</i>',
+      to: '/recuperacion'
     }
   ];
 }

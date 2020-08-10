@@ -12,7 +12,7 @@ class AddNewPost extends Component {
 
   constructor(props) {
     super(props);
-    
+
     this.handleTeamSubmit = this.handleTeamSubmit.bind(this);
   }
 
