@@ -9,56 +9,57 @@ import {
   Button
 } from "shards-react";
 import { Link } from 'react-router-dom';
-import recuperacionService from '../services/recuperacion.service';
+import camaService from '../services/camas.service';
 
 import PageTitle from "../components/common/PageTitle";
 
-class Recuperacion extends Component {
+class CamasRecuperacion extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      recuperacion: [],
+      camas: [],
     }
   }
 
   componentDidMount() {
-    recuperacionService.getAll().then((response) => {
+    camaService.getAll().then((response) => {
       this.setState({
-        recuperacion: response.status === 200 ? response.data : [],
+        camas: response.status === 200 ? response.data : [],
       })
     });
   }
 
-  deleteRecuperacion(recuperacionId) {
+  deleteCama(camaId) {
 
-    recuperacionService.deleteRecuperacion(recuperacionId)
+    camaService.deleteCama(camaId)
         .then((response) => console.log(response))
         .catch((error) => console.log(error));
 }
 
   render() {
-    const { recuperacion } = this.state;
+    const { camas } = this.state;
 
     return (
       <Container fluid className="main-content-container px-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-        <Link style={{ marginRight: "00px" }} to={"agregar-recuperacion"} className="btn btn-sm">Agregar</Link>
-          <PageTitle sm="4" title="Salas de Recuperacion" subtitle="" className="text-sm-left" />
+        <Link style={{ marginRight: "00px" }} to={"crear-cama-recuperacion"} className="btn btn-sm">Agregar</Link>
+          <PageTitle sm="4" title="Salas de cama" subtitle="" className="text-sm-left" />
         </Row>
 
         <Row>
-          {recuperacion.map((recuperacion, index) => {
+          {camas.map((cama, index) => {
             return (
-              <Col lg="2" key={recuperacion.id}>
+              <Col lg="2" key={cama.id}>
                 <Card small className="card-post mb-4">
                   <CardBody>
-                    <h6 className="card-title">Piso {recuperacion.piso}</h6>
-                    <h6 className="card-title">Número {recuperacion.numero}</h6>
+                    <h6 className="card-title">ID {cama.id}</h6>
+                    <h6 className="card-title">{cama.descripcion}</h6>
+                    <h6 className="card-title">{cama.estado}</h6>
                     <ButtonGroup>
-                        <Link style={{ marginRight: "00px" }} to={"editar-recuperacion/" + recuperacion.id} className="btn btn-sm btn-secondary">Editar</Link>
-                        <Button style={{ marginLeft: "00px" }} onClick={this.deleteRecuperacion.bind(this, recuperacion.id)}>Borrar</Button>
+                        <Link style={{ marginRight: "00px" }} to={"editar-cama-recuperacion/" + cama.id} className="btn btn-sm btn-secondary">Editar</Link>
+                        <Button style={{ marginLeft: "00px" }} onClick={this.deleteCama.bind(this, cama.id)}>Borrar</Button>
                     </ButtonGroup>
                   </CardBody>
                 </Card>
@@ -72,4 +73,4 @@ class Recuperacion extends Component {
 
 }
 
-export default Recuperacion;
+export default CamasRecuperacion;

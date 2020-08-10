@@ -20,6 +20,8 @@ import Recuperacion from "./views/Recuperacion";
 import RecuperacionForm from "./views/RecuperacionForm";
 import RecuperacionShow from "./views/RecuperacionShow";
 import AddCamaToSala from "./views/AddCamaToSala";
+import CamasRecuperacion from "./views/CamasRecuperacion";
+import CamaForm from "./views/CamaForm";
 
 export default [
   {
@@ -112,5 +114,20 @@ export default [
     path: "/agregar-cama-recuperacion/:id",
     layout: DefaultLayout,
     component: AddCamaToSala
+  },
+  {
+    path: "/camas-recuperacion",
+    layout: DefaultLayout,
+    component: CamasRecuperacion
+  },
+  {
+    path: "/crear-cama-recuperacion",
+    layout: DefaultLayout,
+    component: CamaForm
+  },
+  {
+    path: "/editar-cama-recuperacion/:id",
+    layout: DefaultLayout,
+    component: CamaForm
   }
 ];

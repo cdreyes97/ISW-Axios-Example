@@ -39,8 +39,8 @@ MainFooter.propTypes = {
 
 MainFooter.defaultProps = {
   contained: false,
-  copyright: "Copyright © 2018 DesignRevision",
-  menuItems: [
+  copyright: "Copyright © 2020 Inventory Is Full",
+  menuItems: [/*
     {
       title: "Home",
       to: "#"
@@ -61,7 +61,7 @@ MainFooter.defaultProps = {
       title: "Blog",
       to: "#"
     }
-  ]
+  */]
 };
 
 export default MainFooter;

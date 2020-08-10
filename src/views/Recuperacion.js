@@ -44,10 +44,10 @@ class Recuperacion extends Component {
       <Container fluid className="main-content-container px-4">
         {/* Page Header */}
         <Row noGutters className="page-header py-4">
-        <Link style={{ marginRight: "00px" }} to={"agregar-recuperacion"} className="btn btn-sm">Agregar</Link>
+          <Link style={{ marginRight: "00px" }} to={"agregar-recuperacion"} className="btn btn-sm">Agregar</Link>
+          <Link style={{ marginRight: "00px" }} to={"camas-recuperacion"} className="btn btn-sm btn-light">Camas</Link>
           <PageTitle sm="4" title="Salas de Recuperacion" subtitle="" className="text-sm-left" />
         </Row>
-
         <Row>
           {recuperacion.map((recuperacion, index) => {
             return (
